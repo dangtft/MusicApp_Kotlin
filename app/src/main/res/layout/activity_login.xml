@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_pink"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/lovepik_com_380591529_listening_to_music_vector_cartoon_sticker"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GOOD MUSIC"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:paddingTop="8dp"
+            android:gravity="center"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email address"
+            android:textColorHint="@color/black"
+            android:padding="16dp"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/email_edittext"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/black"
+            android:padding="16dp"
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/password_edittext"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Login"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/main_pink"
+            android:id="@+id/login_btn"/>
+
+        <ProgressBar
+            android:layout_width="32dp"
+            android:layout_height="60dp"
+            android:id="@+id/progress_bar"
+            android:visibility="gone"
+            android:indeterminateTint="@color/white"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account ?"
+            android:id="@+id/goto_sigup_btn"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+    </LinearLayout>
+
+</LinearLayout>
