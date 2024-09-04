@@ -22,10 +22,10 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.loginBtn.setOnClickListener{
-            val email = binding.emailEdittext.text.toString()
-            val password = binding.passwordEdittext.text.toString()
+            val email = binding.emailEdittext.text.toString().trim()
+            val password = binding.passwordEdittext.text.toString().trim()
 
-            if(Pattern.matches(Patterns.EMAIL_ADDRESS.pattern(),email)){
+            if(!Pattern.matches(Patterns.EMAIL_ADDRESS.pattern(),email)){
                 binding.emailEdittext.setError("Invalid email")
                 return@setOnClickListener
             }

@@ -26,7 +26,7 @@ object MyExoplayer {
         if(currentSongs != song){
 
             currentSongs = song
-
+            updateCount()
             currentSongs?.url?.apply {
                 val mediaItem = MediaItem.fromUri(this)
                 exoPlayer?.setMediaItem(mediaItem)
@@ -53,4 +53,5 @@ object MyExoplayer {
                 }
         }
     }
+
 }

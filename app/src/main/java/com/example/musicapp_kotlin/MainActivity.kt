@@ -1,17 +1,14 @@
 package com.example.musicapp_kotlin
 
+import android.animation.ValueAnimator
 import android.content.Intent
 import android.os.Bundle
-import android.view.RoundedCorner
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.PopupMenu
 import android.widget.RelativeLayout
+import android.widget.ScrollView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -32,6 +29,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
     lateinit var albumAdapter : AlbumAdapter
 
+    private lateinit var scrollView: ScrollView
+    private lateinit var playerView: RelativeLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -45,10 +45,27 @@ class MainActivity : AppCompatActivity() {
         binding.optionBtn.setOnClickListener(){
             showPopupMenu()
         }
+        scrollView = findViewById(R.id.scroll_view)
+        playerView = findViewById(R.id.player_view)
+        if (intent.getBooleanExtra("scroll_to_player_view", false)) {
+            scrollToPlayerViewWithAnimation()
+        }
 
 
     }
+    private fun scrollToPlayerViewWithAnimation() {
+        val scrollViewHeight = scrollView.height
+        val playerViewTop = playerView.top
+        val scrollY = playerViewTop - scrollViewHeight
 
+        val animator = ValueAnimator.ofInt(scrollView.scrollY, scrollY)
+        animator.duration = 500
+        animator.addUpdateListener { animation ->
+            val animatedValue = animation.animatedValue as Int
+            scrollView.scrollTo(0, animatedValue)
+        }
+        animator.start()
+    }
     fun showPopupMenu(){
         val popupMenu = PopupMenu(this,binding.optionBtn)
         val inflate = popupMenu.menuInflater
@@ -56,6 +73,14 @@ class MainActivity : AppCompatActivity() {
         popupMenu.show()
         popupMenu.setOnMenuItemClickListener {
             when(it.itemId){
+                R.id.profile -> {
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                    true
+                }
+                R.id.search -> {
+                    startActivity(Intent(this, SearchActivity::class.java))
+                    true
+                }
                 R.id.logout -> {
                     logout()
                     true

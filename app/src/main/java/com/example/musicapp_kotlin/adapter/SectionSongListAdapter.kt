@@ -21,24 +21,29 @@ class SectionSongListAdapter(private val songIdList : List<String>):
 
         fun binData(songId : String){
 
-            FirebaseFirestore.getInstance().collection("Songs")
-                .document(songId).get()
-                .addOnSuccessListener {
-                    val songs = it.toObject(SongModel::class.java)
-                    songs?.apply {
-                        binding.songTitleTextView.text = title
-                        binding.songArtistTextView.text = artist
-                        Glide.with(binding.songCoverImageView).load(coverUrl)
-                            .apply(
-                                RequestOptions().transform(RoundedCorners(32))
-                            )
-                            .into(binding.songCoverImageView)
-                        binding.root.setOnClickListener{
-                            MyExoplayer.startPlaying(binding.root.context,songs)
-                            it.context.startActivity(Intent(it.context, PlayerActivity::class.java))
+            if (songId.isNotEmpty()){
+                FirebaseFirestore.getInstance().collection("Songs")
+                    .document(songId).get()
+                    .addOnSuccessListener {
+                        val songs = it.toObject(SongModel::class.java)
+                        songs?.apply {
+                            binding.songTitleTextView.text = title
+                            binding.songArtistTextView.text = artist
+                            Glide.with(binding.songCoverImageView).load(coverUrl)
+                                .apply(
+                                    RequestOptions().transform(RoundedCorners(32))
+                                )
+                                .into(binding.songCoverImageView)
+                            binding.root.setOnClickListener{
+                                MyExoplayer.startPlaying(binding.root.context,songs)
+                                it.context.startActivity(Intent(it.context, PlayerActivity::class.java))
+                            }
                         }
                     }
-                }
+            }else{
+
+            }
+
         }
     }
 

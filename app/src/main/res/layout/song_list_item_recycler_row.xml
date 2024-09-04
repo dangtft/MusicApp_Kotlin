@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:padding="16dp"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/main_blue">
+    android:background="@color/main_pink">
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -33,6 +33,13 @@
             tools:text="Artist"
             android:textColor="@color/white"
             android:id="@+id/song_artist_text_view"/>
+
+        <ImageView
+            android:id="@+id/btn_download"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:src="@drawable/download_solid" />
     </LinearLayout>
 
 
