@@ -154,6 +154,99 @@
                     android:layout_height="wrap_content" />
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/us_uk_main_layout">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/us_uk_title"
+                    tools:text="Trending"
+                    android:textColor="@color/main_pink"
+                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/baseline_arrow_right_24"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/us_uk_recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/us_uk_title"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/taylor_swift_main_layout">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/taylor_swift_title"
+                    tools:text="Trending"
+                    android:textColor="@color/main_pink"
+                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/baseline_arrow_right_24"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/taylor_swift_recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/taylor_swift_title"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/charlie_puth_main_layout">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/charlie_puth_title"
+                    tools:text="Trending"
+                    android:textColor="@color/main_pink"
+                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/baseline_arrow_right_24"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/charlie_puth_recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/charlie_puth_title"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
         </LinearLayout>
 
     </ScrollView>

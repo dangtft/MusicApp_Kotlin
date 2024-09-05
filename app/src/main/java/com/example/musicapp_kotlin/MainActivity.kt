@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity() {
         getAlbum()
         getSection("section_1",binding.section1MainLayout,binding.section1Title,binding.section1RecycleView)
         getSection("section_2",binding.section2MainLayout,binding.section2Title,binding.section2RecycleView)
+        getSection("us-uk",binding.section2MainLayout,binding.section2Title,binding.section2RecycleView)
+        getSection("taylor-swift",binding.section2MainLayout,binding.section2Title,binding.section2RecycleView)
+        getSection("charlie-puth",binding.section2MainLayout,binding.section2Title,binding.section2RecycleView)
         setupMostlyPlayed("mostly_played",binding.mostlyPlayedMainLayout,binding.mostlyPlayedTitle,binding.mostlyPlayedRecycleView)
 
         binding.optionBtn.setOnClickListener(){
