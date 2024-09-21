@@ -36,6 +36,7 @@ class SignupActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+
         binding.imageView3.setOnClickListener {
             signInWithGoogle()
         }
@@ -84,9 +85,12 @@ class SignupActivity : AppCompatActivity() {
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-                // Đăng nhập bằng Google thành công, xác thực với Firebase
-                val account = task.getResult(ApiException::class.java)!!
-                firebaseAuthWithGoogle(account.idToken!!)
+                val account = task.getResult(ApiException::class.java)
+                if (account != null) {
+                    firebaseAuthWithGoogle(account.idToken!!)
+                } else {
+                    Toast.makeText(this, "Đăng nhập bằng Google thất bại", Toast.LENGTH_SHORT).show()
+                }
             } catch (e: ApiException) {
                 // Đăng nhập bằng Google thất bại
                 Toast.makeText(this, "Google sign in failed: ${e.message}", Toast.LENGTH_SHORT).show()

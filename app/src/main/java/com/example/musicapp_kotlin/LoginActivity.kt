@@ -73,9 +73,12 @@ class LoginActivity : AppCompatActivity() {
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-                // Google Sign-In thành công, xác thực với Firebase
-                val account = task.getResult(ApiException::class.java)!!
-                firebaseAuthWithGoogle(account.idToken!!)
+                val account = task.getResult(ApiException::class.java)
+                if (account != null) {
+                    firebaseAuthWithGoogle(account.idToken!!)
+                } else {
+                    Toast.makeText(this, "Đăng nhập bằng Google thất bại", Toast.LENGTH_SHORT).show()
+                }
             } catch (e: ApiException) {
                 // Google Sign-In thất bại
                 Toast.makeText(this, "Google sign in failed: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -89,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 setInProgress(false)
                 if (task.isSuccessful) {
-                    // Đăng nhập thành công, chuyển đến MainActivity
+                    Toast.makeText(this, "Đăng nhập Google thành công", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     finish()
                 } else {
