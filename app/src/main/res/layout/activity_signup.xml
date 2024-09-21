@@ -89,6 +89,18 @@
             android:backgroundTint="@color/white"
             android:textColor="@color/main_pink"
             android:id="@+id/create_account"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/google_brands_solid"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="489dp" />
         
         <ProgressBar
             android:layout_width="32dp"
